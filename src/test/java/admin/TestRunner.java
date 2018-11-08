@@ -44,6 +44,7 @@ public class TestRunner {
         mainPage = new MainPage(driver);
         Assert.assertTrue(mainPage.checkLogoDisplay());
         mainPage.selectAndCheckMenuItem();
+        mainPage.logout();
     }
 
     @AfterClass
