@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="2">
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+
+    <!--<test name="ChromeTest">-->
+        <!--<parameter name="browser" value="chrome"/>-->
+        <!--<classes>-->
+            <!--<class name="admin.TestRunner"></class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="admin.TestRunner"></class>
+        </classes>
+    </test>
+
+    <!--<test name="InternetExplorerTest">-->
+        <!--<parameter name="browser" value="IE"/>-->
+        <!--<classes>-->
+            <!--<class name="admin.TestRunner"></class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+</suite>

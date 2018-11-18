@@ -6,12 +6,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ProductPage {
 
     By addProductButton = By.xpath("//a[contains(@id,'add')]");
     By productNameInput = By.id("form_step1_name_1");
     By productQuantityInput = By.id("form_step1_qty_0_shortcut");
     By productPriceInput = By.id("form_step1_price_shortcut");
+    By activateProduct = By.cssSelector(".switch-input");
+    By settingsPopup = By.id("growls");
+    By closeSettingsPopup = By.cssSelector(".growl-close");
 
 
 
@@ -21,25 +27,24 @@ public class ProductPage {
         this.driver = driver;
     }
 
-    public void addProduct(String name) {
+    public void addProduct(String name, String count, String price) throws InterruptedException {
         driver.findElement(addProductButton).click();
         driver.findElement(productNameInput).sendKeys(name);
-        driver.findElement(productQuantityInput).sendKeys(RandomStringUtils.randomNumeric(1,100));
-        driver.findElement(productPriceInput).sendKeys(RandomStringUtils.randomNumeric(1,50));
-        driver.findElement(productPriceInput).submit();
-//        driver.findElement(addCategoryButton).click();
-//        new WebDriverWait(driver,10)
-//                .withMessage("Add category error")
-//                .until(ExpectedConditions.visibilityOfElementLocated(alertSuccess));
+        driver.findElement(productQuantityInput).clear();
+        driver.findElement(productQuantityInput).sendKeys(count);
+        driver.findElement(productPriceInput).clear();
+        driver.findElement(productPriceInput).sendKeys(price);
+        driver.findElement(activateProduct).click();
+        waitPopupAndCloseIt();
+        driver.findElement(productNameInput).submit();
+        waitPopupAndCloseIt();
     }
 
-//    public void findCategory(String categoryName) {
-//        driver.findElement(nameFilter).sendKeys(categoryName);
-//        driver.findElement(submitFilter).click();
-//        String searchXpath = String.format("//td[contains(text(),'%s')]", categoryName);
-//        By search = By.xpath(searchXpath);
-//        new WebDriverWait(driver, 10)
-//                .withMessage("Category not found")
-//                .until(ExpectedConditions.visibilityOfElementLocated(search));
-//    }
+    public void waitPopupAndCloseIt() {
+        new WebDriverWait(driver,15)
+                .withMessage("Произошла ошибка при сохранении настроек!!!")
+                .until(ExpectedConditions.visibilityOfElementLocated(settingsPopup));
+        driver.findElement(closeSettingsPopup).click();
+    }
+
 }
