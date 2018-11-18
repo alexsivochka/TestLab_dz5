@@ -11,7 +11,7 @@ public class MainPage {
     By logo = By.xpath("//a[@id='header_logo']");
 
     By menuCatalog = By.id("subtab-AdminCatalog");
-    By menuCategories = By.id("subtab-AdminCategories");
+    By menuProducts = By.id("subtab-AdminProducts");
 
     private final WebDriver driver;
 
@@ -29,12 +29,12 @@ public class MainPage {
         return new LoginPage(driver);
     }
 
-    public CategoryPage goToCategoryPage() {
+    public ProductPage goToProductsPage() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(menuCatalog)).pause(500)
-            .moveToElement(driver.findElement(menuCategories)).pause(500)
+            .moveToElement(driver.findElement(menuProducts)).pause(500)
             .click().build().perform();
-        return new CategoryPage(driver);
+        return new ProductPage(driver);
     }
 
 }

@@ -1,7 +1,7 @@
 package admin;
 
 import admin.listeners.EventHandler;
-import admin.pages.CategoryPage;
+import admin.pages.ProductPage;
 import admin.pages.LoginPage;
 import admin.pages.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -17,7 +17,7 @@ public class TestRunner {
     EventFiringWebDriver driver;
     LoginPage loginPage;
     MainPage mainPage;
-    CategoryPage categoryPage;
+    ProductPage categoryPage;
 
     @BeforeClass
     public EventFiringWebDriver getConfiguredDriver() {
@@ -38,10 +38,11 @@ public class TestRunner {
         loginPage.login("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         mainPage = new MainPage(driver);
         Assert.assertTrue(mainPage.checkLogoDisplay());
-        mainPage.goToCategoryPage();
-        categoryPage = new CategoryPage(driver);
-        categoryPage.addCategory("Test category");
-        categoryPage.findCategory("Test category");
+        mainPage.goToProductsPage();
+        categoryPage = new ProductPage(driver);
+        categoryPage.addProduct("Test product" +
+                "");
+//        categoryPage.findCategory("Test category");
 
     }
     @AfterClass
