@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-    By emailField = By.id("email");
+    By emailField = By.name("email");
     By passwordField = By.id("passwd");
     By submitButton = By.name("submitLogin");
 

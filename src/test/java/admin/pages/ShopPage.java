@@ -49,7 +49,7 @@ public class ShopPage {
         String productXpath = String.format(xpath, productName);
         WebElement result = driver.findElement(By.xpath(productXpath));
         WebElement details = driver.findElement(By.xpath("//a[@class='quick-view']"));
-        actions.moveToElement(result).pause(500).moveToElement(details).pause(500).click().build().perform();
+        actions.moveToElement(result).pause(1000).moveToElement(details).pause(1000).click().build().perform();
         new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.visibilityOfElementLocated(detailsForm));
         this.productName = driver.findElement(nameDetails).getAttribute("innerHTML");

@@ -7,12 +7,12 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
 
-    <!--<test name="ChromeTest">-->
-        <!--<parameter name="browser" value="chrome"/>-->
-        <!--<classes>-->
-            <!--<class name="admin.TestRunner"></class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="admin.TestRunner"></class>
+        </classes>
+    </test>
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
@@ -21,11 +21,11 @@
         </classes>
     </test>
 
-    <!--<test name="InternetExplorerTest">-->
-        <!--<parameter name="browser" value="IE"/>-->
-        <!--<classes>-->
-            <!--<class name="admin.TestRunner"></class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="admin.TestRunner"></class>
+        </classes>
+    </test>
 
 </suite>
