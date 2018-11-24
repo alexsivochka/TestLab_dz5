@@ -14,15 +14,29 @@
         </classes>
     </test>
 
-    <!--<test name="FirefoxTest">-->
-        <!--<parameter name="browser" value="firefox"/>-->
-        <!--<classes>-->
-            <!--<class name="admin.TestRunner"></class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="admin.TestRunner"></class>
+        </classes>
+    </test>
 
-    <!--<test name="EdgeTest">-->
-        <!--<parameter name="browser" value="edge"/>-->
+    <test name="EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="admin.TestRunner"></class>
+        </classes>
+    </test>
+
+    <test name="MobileTest">
+        <parameter name="browser" value="mobile"/>
+        <classes>
+            <class name="admin.TestRunner"></class>
+        </classes>
+    </test>
+
+    <!--<test name="RemoteTest">-->
+        <!--<parameter name="browser" value="remote-chrome"/>-->
         <!--<classes>-->
             <!--<class name="admin.TestRunner"></class>-->
         <!--</classes>-->
